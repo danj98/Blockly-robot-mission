@@ -4,12 +4,15 @@ Blockly.Blocks["element"] = {
   init: function () {
     this.appendValueInput("Number")
       .setCheck("Number")
-      .appendField("Add Class")
-      .appendField(new Blockly.FieldNumber(0), "ID")
-      .appendField("For amount")
-      .appendField(new Blockly.FieldNumber(0), "Amount")
-      .appendField("At Price")
-      .appendField(new Blockly.FieldNumber(0), "Price");
+      .appendField("element")
+      .appendField(
+        new Blockly.FieldDropdown([
+          ["class", "."],
+          ["id", "#"]
+        ]),
+        "element"
+      )
+      .appendField(new Blockly.FieldTextInput("class_name"), "class_name");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, "String");
     this.setColour(230);
@@ -19,15 +22,14 @@ Blockly.Blocks["element"] = {
 };
 
 Blockly.JavaScript["element"] = function (block) {
-  var number_id = block.getFieldValue("ID");
-  var number_amount = block.getFieldValue("Amount");
-  var number_price = block.getFieldValue("Price");
+  var dropdown_element = block.getFieldValue("element");
+  var text_class_name = block.getFieldValue("class_name");
   var value_number = Blockly.JavaScript.valueToCode(
     block,
     "Number",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  var code = `hello(${number_id},${number_amount},${number_price},${value_number});\n`;
+  var code = `hello(${dropdown_element},${text_class_name});\n`;
   return code;
 };
 

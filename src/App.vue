@@ -64,7 +64,7 @@ export default {
           </category>
           <category name="Variables" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}">
             </category>
-          <category name="Stocks" colour="%{BKY_LOOPS_HUE}">
+          <category name="JQuery" colour="%{BKY_LOOPS_HUE}">
             <block type="stock_buy_simple"></block>
             <block type="stock_buy_prog"></block>
             <block type="stock_fetch_price"></block>
