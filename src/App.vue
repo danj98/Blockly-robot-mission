@@ -11,6 +11,7 @@
 <script>
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 import "./blocks/stocks";
+import "./blocks/element";
 import "./prompt";
 
 import BlocklyJS from "blockly/javascript";
@@ -67,6 +68,7 @@ export default {
             <block type="stock_buy_simple"></block>
             <block type="stock_buy_prog"></block>
             <block type="stock_fetch_price"></block>
+            <block type="element"></block>
           </category>
         </xml>`,
       },
