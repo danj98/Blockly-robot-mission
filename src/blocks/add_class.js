@@ -35,6 +35,6 @@ Blockly.JavaScript["add_class"] = function (block) {
   );
   // TODO: Assemble JavaScript into code variable.
   var code =
-    "$(.'" + value_trigger_class + "').addClass(.'" + value_action_class + "')";
+    "$('." + value_trigger_class + "').addClass('." + value_action_class + "')";
   return code;
 };
