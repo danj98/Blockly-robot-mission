@@ -5,7 +5,7 @@ Blockly.Blocks["element"] = {
     this.appendDummyInput()
       .appendField("class")
       .appendField(new Blockly.FieldTextInput("class"), "class");
-    this.setOutput(true, null);
+    this.setOutput(true, "String");
     this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
@@ -14,8 +14,8 @@ Blockly.Blocks["element"] = {
 
 Blockly.JavaScript["element"] = function (block) {
   var text_class = block.getFieldValue("class");
-  var code = `${text_class}`;
-  return code;
+  var code = text_class;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 /*
