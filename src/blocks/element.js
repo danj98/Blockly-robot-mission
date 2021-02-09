@@ -29,7 +29,7 @@ Blockly.JavaScript["element"] = function (block) {
     "Number",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  var code = `hello(${dropdown_element},${text_class_name});\n`;
+  var code = `hello(${dropdown_element},${text_class_name},${value_number});\n`;
   return code;
 };
 
