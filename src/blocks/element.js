@@ -2,33 +2,19 @@ import * as Blockly from "blockly/core";
 
 Blockly.Blocks["element"] = {
   init: function () {
-    this.appendValueInput("Number")
-      .setCheck("Number")
-      .appendField("element")
-      .appendField(
-        new Blockly.FieldDropdown([
-          ["class", "."],
-          ["id", "#"]
-        ]),
-        "element"
-      )
-      .appendField(new Blockly.FieldTextInput("class_name"), "class_name");
+    this.appendDummyInput()
+      .appendField("class")
+      .appendField(new Blockly.FieldTextInput("class"), "class");
     this.setOutput(true, null);
     this.setColour(230);
-    this.setTooltip("buy id");
-    this.setHelpUrl("https://example.com");
+    this.setTooltip("");
+    this.setHelpUrl("");
   }
 };
 
 Blockly.JavaScript["element"] = function (block) {
-  var dropdown_element = block.getFieldValue("element");
-  var text_class_name = block.getFieldValue("class_name");
-  var value_number = Blockly.JavaScript.valueToCode(
-    block,
-    "Number",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
-  var code = `${dropdown_element}${text_class_name}${value_number}`;
+  var text_class = block.getFieldValue("class");
+  var code = `${text_class}`;
   return code;
 };
 

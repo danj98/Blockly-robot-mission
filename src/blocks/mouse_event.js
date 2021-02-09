@@ -33,6 +33,6 @@ Blockly.JavaScript["mouse_event"] = function (block) {
   );
   var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
   // TODO: Assemble JavaScript into code variable.
-  var code = `${dropdown_on}${value_into}${statements_name}`;
+  var code = `$(.${value_into}).on('${dropdown_on}',function() {\n${statements_name}\n}`;
   return code;
 };
