@@ -13,10 +13,11 @@ Blockly.Blocks["element"] = {
         "element"
       )
       .appendField(new Blockly.FieldTextInput("class-name"), "NAME");
-    this.setOutput(true, "String");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, "String");
     this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
+    this.setTooltip("buy id");
+    this.setHelpUrl("https://example.com");
   }
 };
 
