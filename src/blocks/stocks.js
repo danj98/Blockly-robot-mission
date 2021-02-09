@@ -1,6 +1,6 @@
 /**
  * @license
- * 
+ *
  * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,11 +24,10 @@
 // More on defining blocks:
 // https://developers.google.com/blockly/guides/create-custom-blocks/define-blocks
 
-
-import * as Blockly from 'blockly/core';
+import * as Blockly from "blockly/core";
 
 Blockly.Blocks["stock_buy_simple"] = {
-  init: function() {
+  init: function () {
     this.appendValueInput("Number")
       .setCheck("Number")
       .appendField("Buy Stock ID")
@@ -45,7 +44,7 @@ Blockly.Blocks["stock_buy_simple"] = {
   }
 };
 
-Blockly.JavaScript["stock_buy_simple"] = function(block) {
+Blockly.JavaScript["stock_buy_simple"] = function (block) {
   var number_id = block.getFieldValue("ID");
   var number_amount = block.getFieldValue("Amount");
   var number_price = block.getFieldValue("Price");
@@ -54,21 +53,17 @@ Blockly.JavaScript["stock_buy_simple"] = function(block) {
     "Number",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  var code = `buy(${number_id},${number_amount},${number_price},${value_number});\n`;
+  var code = `hello(${number_id},${number_amount},${number_price},${value_number});\n`;
   return code;
 };
 
 Blockly.Blocks["stock_buy_prog"] = {
-  init: function() {
+  init: function () {
     this.appendValueInput("Number")
       .setCheck("Number")
       .appendField("Buy Stock ID");
-    this.appendValueInput("NAME")
-      .setCheck("Number")
-      .appendField("For amount");
-    this.appendValueInput("NAME")
-      .setCheck("Number")
-      .appendField("At Price");
+    this.appendValueInput("NAME").setCheck("Number").appendField("For amount");
+    this.appendValueInput("NAME").setCheck("Number").appendField("At Price");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, "String");
     this.setColour(230);
@@ -77,7 +72,7 @@ Blockly.Blocks["stock_buy_prog"] = {
   }
 };
 
-Blockly.JavaScript["stock_buy_prog"] = function(block) {
+Blockly.JavaScript["stock_buy_prog"] = function (block) {
   var value_number = Blockly.JavaScript.valueToCode(
     block,
     "Number",
@@ -93,7 +88,7 @@ Blockly.JavaScript["stock_buy_prog"] = function(block) {
 };
 
 Blockly.Blocks["stock_fetch_price"] = {
-  init: function() {
+  init: function () {
     this.appendValueInput("Fetch")
       .setCheck("Number")
       .appendField("Fetch Price of Stock ID:");
@@ -109,7 +104,7 @@ Blockly.Blocks["stock_fetch_price"] = {
   }
 };
 
-Blockly.JavaScript["stock_fetch_price"] = function(block) {
+Blockly.JavaScript["stock_fetch_price"] = function (block) {
   var value_fetch = Blockly.JavaScript.valueToCode(
     block,
     "Fetch",
