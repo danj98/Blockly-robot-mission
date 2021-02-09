@@ -13,8 +13,7 @@ Blockly.Blocks["element"] = {
         "element"
       )
       .appendField(new Blockly.FieldTextInput("class_name"), "class_name");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, "String");
+    this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip("buy id");
     this.setHelpUrl("https://example.com");
@@ -29,7 +28,7 @@ Blockly.JavaScript["element"] = function (block) {
     "Number",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  var code = `hello(${dropdown_element},${text_class_name},${value_number});\n`;
+  var code = `${dropdown_element}${text_class_name}${value_number}`;
   return code;
 };
 
