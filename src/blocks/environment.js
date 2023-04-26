@@ -28,7 +28,7 @@ Blockly.Blocks['environment'] = {
     var number_size_y = block.getFieldValue('size_y');
     var statements_env_objects = Blockly.JavaScript.statementToCode(block, 'env_objects');
     // TODO: Assemble JavaScript into code variable.
-    var code = '{\n"environment": {\n"size_x": ' + number_size_x + ',\n"size_y": ' + number_size_y + ',\n"env_objects": [\n' + statements_env_objects + '\n]\n}\n}\n';
+    var code = '{\n"size_x": ' + number_size_x + ',\n"size_y": ' + number_size_y + ',\n"env_objects": [\n' + statements_env_objects + '\n]\n}\n';
     return code;
   };
 

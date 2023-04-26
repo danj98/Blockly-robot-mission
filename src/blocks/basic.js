@@ -5,6 +5,9 @@ Blockly.Blocks['mission_start'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("Mission start");
+        this.appendDummyInput()
+            .appendField("Name:")
+            .appendField(new Blockly.FieldTextInput("Robot"), "ROBOTNAME");
         this.appendStatementInput("env")
             //.setCheck("Env")
             .setAlign(Blockly.ALIGN_RIGHT)
@@ -26,10 +29,17 @@ Blockly.Blocks['mission_start'] = {
   
 
   Blockly.JavaScript['mission_start'] = function(block) {
+    var mission_name = Blockly.JavaScript.statementToCode(block, 'ROBOTNAME');
     var statements_env = Blockly.JavaScript.statementToCode(block, 'env');
     var statements_robot = Blockly.JavaScript.statementToCode(block, 'robot');
     var statements_tasks = Blockly.JavaScript.statementToCode(block, 'tasks');
     // TODO: Assemble JavaScript into code variable.
-    var code = '{ "mission_start": [\n' + statements_env + ',\n' + statements_robot + ',\n' + statements_tasks + '\n]\n}\n';
+    var code = '{\n'
+        + '"name": "' + mission_name + '",\n'
+        + '"environment": ' + statements_env + ",\n"
+        + '"robots": ' + statements_robot + ",\n"
+        + '"tasks": ' + statements_tasks + "\n"
+        + '}\n'
+        ;
     return code;
   };

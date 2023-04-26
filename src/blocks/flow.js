@@ -47,7 +47,7 @@ Blockly.JavaScript['sequence'] = function(block) {
     var statements_sequence = Blockly.JavaScript.statementToCode(block, 'Sequence');
     // TODO: Assemble JavaScript into code variable.
     var code = '{\n'
-        + '"task_sequence": ['
+        + '"sequence": ['
         + statements_sequence 
         + ']\n'
         + '}\n'
