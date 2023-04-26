@@ -65,7 +65,7 @@ Blockly.Blocks["stock_fetch_price"] = {
   init: function () {
     this.appendValueInput("Fetch")
       .setCheck("Number")
-      .appendField("Fetch Price of Stock ID:");
+      .appendField("Fetch Price of cum ID:");
     this.appendDummyInput()
       .appendField("And set to:")
       .appendField(new Blockly.FieldVariable("item"), "variable");
