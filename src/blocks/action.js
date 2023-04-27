@@ -36,7 +36,6 @@ Blockly.Blocks['move_to_coords_input'] = {
     var number_coord_x = block.getFieldValue('coord_x');
     var number_coord_y = block.getFieldValue('coord_y');
     var angle_theta = block.getFieldValue('theta');
-    // TODO: Assemble JavaScript into code variable.
     var code = 'move_to_coords(\n' + 'robot: "' + text_robot + '",\nx:' + number_coord_x + ',\ny:' + number_coord_y + ',\nangle:' + angle_theta + ')\n';
     return code;
   };
@@ -65,7 +64,6 @@ Blockly.Blocks['turn'] = {
   Blockly.JavaScript['turn'] = function(block) {
     var text_robot = block.getFieldValue('robot');
     var angle_deg = block.getFieldValue('deg');
-    // TODO: Assemble JavaScript into code variable.
     var code = 'turn(\n' + 'robot: "' + text_robot + '",\nangle:' + angle_deg + ')\n';
     return code;
   };
@@ -110,7 +108,6 @@ Blockly.Blocks['search_for_env_object'] = {
     var number_y1 = block.getFieldValue('y1');
     var number_x2 = block.getFieldValue('x2');
     var number_y2 = block.getFieldValue('y2');
-    // TODO: Assemble JavaScript into code variable.
     var code = 'search_for_env_object(\n' + 'robot: "' + text_robot + '",\nobject:' + text_env_object + ',\nx1:' + number_x1 + ',\ny1:' + number_y1 + ',\nx2:' + number_x2 + ',\ny2:' + number_y2 + ')\n';
     return code;
   };
@@ -134,7 +131,6 @@ Blockly.Blocks['read_lidar'] = {
 
   Blockly.JavaScript['read_lidar'] = function(block) {
     var text_robot = block.getFieldValue('robot');
-    // TODO: Assemble JavaScript into code variable.
     var code = 'read_lidar(\n' + 'robot: "' + text_robot + '")\n';
     return code;
   };

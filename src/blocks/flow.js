@@ -6,10 +6,10 @@ Blockly.Blocks['parallel_actions'] = {
       this.appendDummyInput()
           .appendField("Parallel actions");
       this.appendStatementInput("actions1")
-          .setCheck("action")
+          //.setCheck("action")
           .appendField("Actions 1:");
       this.appendStatementInput("actions2")
-          .setCheck("action")
+          //.setCheck("action")
           .appendField("Actions 2:");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
