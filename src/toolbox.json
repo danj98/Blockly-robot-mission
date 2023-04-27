@@ -5,28 +5,86 @@
         "kind": "category",
         "name": "Control",
         "contents": [
-          {
+            {
             "kind": "block",
             "type": "controls_if"
-          }
+            },
+            {
+                "kind": "block",
+                "type": "controls_repeat_ext"
+            },
+            {
+                "kind": "block",
+                "type": "controls_whileUntil"
+            },
+            {
+                "kind": "block",
+                "type": "controls_flow_statements"
+            }
         ]
       },
       {
         "kind": "category",
-        "name": "Logic",
+        "name": "Basic",
         "contents": [
-          {
-            "kind": "block",
-            "type": "logic_compare"
-          },
-          {
-            "kind": "block",
-            "type": "logic_operation"
-          },
-          {
-            "kind": "block",
-            "type": "logic_boolean"
-          }
+            {
+                "kind": "block",
+                "type": "mission_start"
+            },
+            {
+                "kind": "block",
+                "type": "robot"
+            }
+        ]
+      },
+      {
+        "kind": "category",
+        "name": "Environment",
+        "contents": [
+            {
+                "kind": "block",
+                "type": "environment"
+            },
+            {
+                "kind": "block",
+                "type": "env_object"
+            }
+        ]
+      },
+        {
+            "kind": "category",
+            "name": "Flow",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "parallel_actions"
+                },
+                {
+                    "kind": "block",
+                    "type": "sequence"
+                }
+            ]
+        },
+      {
+        "kind": "category",
+        "name": "Action",
+        "contents": [
+            {
+                "kind": "block",
+                "type": "move_to_coords_input"
+            },
+            {
+                "kind": "block",
+                "type": "turn"
+            },
+            {
+                "kind": "block",
+                "type": "search_for_env_object"
+            },
+            {
+                "kind": "block",
+                "type": "read_lidar"
+            }
         ]
       }
     ]

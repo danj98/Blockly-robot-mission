@@ -10,10 +10,11 @@
 
 <script>
 import BlocklyComponent from "./components/BlocklyComponent.vue";
-import "./blocks/stocks";
-import "./blocks/element";
-import "./blocks/add_class";
-import "./blocks/mouse_event";
+import "./blocks/action";
+import "./blocks/basic";
+import "./blocks/robot";
+import "./blocks/flow";
+import "./blocks/environment";
 import "./prompt";
 
 import BlocklyJS from "blockly/javascript";
