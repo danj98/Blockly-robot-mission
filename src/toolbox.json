@@ -75,7 +75,7 @@
         "contents": [
             {
                 "kind": "block",
-                "type": "move_to_coords_input"
+                "type": "move"
             },
             {
                 "kind": "block",
@@ -83,7 +83,7 @@
             },
             {
                 "kind": "block",
-                "type": "search_for_env_object"
+                "type": "scout"
             },
             {
                 "kind": "block",

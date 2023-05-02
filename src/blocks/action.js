@@ -1,14 +1,16 @@
 import * as Blockly from "blockly/core";
 
 // Block to move the robot to x and y coordinates
-Blockly.Blocks['move_to_coords_input'] = {
+Blockly.Blocks['move'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("Move to:");
+          .appendField("Move");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField("Robot:")
+          .appendField("robot")
           .appendField(new Blockly.FieldTextInput(""), "robot");
+      this.appendDummyInput()
+      .appendField("to:");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("x:")
@@ -19,8 +21,8 @@ Blockly.Blocks['move_to_coords_input'] = {
           .appendField(new Blockly.FieldNumber(0), "coord_y");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
-          .appendField("Angle:")
-          .appendField(new Blockly.FieldAngle(0), "theta");
+          .appendField("angle:")
+          .appendField(new Blockly.FieldAngle(0), "deg");
       this.setInputsInline(true);
       //this.setOutput(true, "Action");
       this.setPreviousStatement(true, ["Action", "Flow"]);
@@ -31,12 +33,12 @@ Blockly.Blocks['move_to_coords_input'] = {
     }
   };
 
-  Blockly.JavaScript['move_to_coords_input'] = function(block) {
+  Blockly.JavaScript['move'] = function(block) {
     var text_robot = block.getFieldValue('robot');
     var number_coord_x = block.getFieldValue('coord_x');
     var number_coord_y = block.getFieldValue('coord_y');
-    var angle_theta = block.getFieldValue('theta');
-    var code = 'move_to_coords(\n' + 'robot: "' + text_robot + '",\nx:' + number_coord_x + ',\ny:' + number_coord_y + ',\nangle:' + angle_theta + ')\n';
+    var angle_deg = block.getFieldValue('deg');
+    var code = '{\n' + '"task_type": "move",\n"robot": "' + text_robot + '",\n"x":' + number_coord_x + ',\n"y":' + number_coord_y + '",\n"angle":' + angle_deg + '\n}\n';
     return code;
   };
 
@@ -64,33 +66,33 @@ Blockly.Blocks['turn'] = {
   Blockly.JavaScript['turn'] = function(block) {
     var text_robot = block.getFieldValue('robot');
     var angle_deg = block.getFieldValue('deg');
-    var code = 'turn(\n' + 'robot: "' + text_robot + '",\nangle:' + angle_deg + ')\n';
+    var code = '{\n' + '"task_type": "turn",\n"robot": "' + text_robot + '",\n"angle":' + angle_deg + '\n}\n';
     return code;
   };
 
-// Block to search an area for an environment object
-Blockly.Blocks['search_for_env_object'] = {
+// Block to scout an area for an environment object
+Blockly.Blocks['scout'] = {
     init: function() {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_LEFT)
-          .appendField("Search for object in area");
+          .appendField("Scout for object in area");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_LEFT)
           .appendField("Robot:")
           .appendField(new Blockly.FieldTextInput(""), "robot");
       this.appendDummyInput()
           .appendField("Environment object:")
-          .appendField(new Blockly.FieldTextInput(""), "env_object");
+          .appendField(new Blockly.FieldTextInput(""), "target");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_LEFT)
-          .appendField("x1:")
-          .appendField(new Blockly.FieldNumber(0), "x1")
-          .appendField("y1:")
-          .appendField(new Blockly.FieldNumber(0), "y1")
-          .appendField("x2:")
-          .appendField(new Blockly.FieldNumber(0), "x2")
-          .appendField("y2:")
-          .appendField(new Blockly.FieldNumber(0), "y2")
+          .appendField("left:")
+          .appendField(new Blockly.FieldNumber(0), "left")
+          .appendField("bottom:")
+          .appendField(new Blockly.FieldNumber(0), "bottom")
+          .appendField("right:")
+          .appendField(new Blockly.FieldNumber(0), "right")
+          .appendField("top:")
+          .appendField(new Blockly.FieldNumber(0), "top")
       this.setInputsInline(false);
       //this.setOutput(true, "Action");
       this.setPreviousStatement(true, ["Action", "Flow"]);
@@ -101,14 +103,25 @@ Blockly.Blocks['search_for_env_object'] = {
     }
   };
 
-  Blockly.JavaScript['search_for_env_object'] = function(block) {
+  Blockly.JavaScript['scout'] = function(block) {
     var text_robot = block.getFieldValue('robot');
-    var text_env_object = block.getFieldValue('env_object');
-    var number_x1 = block.getFieldValue('x1');
-    var number_y1 = block.getFieldValue('y1');
-    var number_x2 = block.getFieldValue('x2');
-    var number_y2 = block.getFieldValue('y2');
-    var code = 'search_for_env_object(\n' + 'robot: "' + text_robot + '",\nobject:' + text_env_object + ',\nx1:' + number_x1 + ',\ny1:' + number_y1 + ',\nx2:' + number_x2 + ',\ny2:' + number_y2 + ')\n';
+    var text_target = block.getFieldValue('target');
+    var number_left = block.getFieldValue('left');
+    var number_bottom= block.getFieldValue('bottom');
+    var number_right = block.getFieldValue('right');
+    var number_top = block.getFieldValue('top');
+    var code = '{\n'
+        + '"task_type" : "scout",\n'
+        + '"robot":"' + text_robot + '",\n'
+        + '"target": "' + text_target + '",\n'
+        + '"area": {\n'
+        + '"left":' + number_left + ",\n"
+        + '"bottom":' + number_bottom + ",\n"
+        + '"right":' + number_right + ",\n"
+        + '"top":' + number_top + ",\n"
+        + '}\n'
+        + '}\n'
+    ;
     return code;
   };
 
@@ -131,6 +144,6 @@ Blockly.Blocks['read_lidar'] = {
 
   Blockly.JavaScript['read_lidar'] = function(block) {
     var text_robot = block.getFieldValue('robot');
-    var code = 'read_lidar(\n' + 'robot: "' + text_robot + '")\n';
+    var code = '{\n' + '"task_type": "read_lidar",\n"robot": "' + text_robot + '"\n}\n';
     return code;
   };
