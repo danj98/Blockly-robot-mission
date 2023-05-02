@@ -33,36 +33,74 @@ Blockly.Blocks['environment'] = {
   };
 
 // Block for describing an environment object
-Blockly.Blocks['env_object'] = {
+Blockly.Blocks['scoutableobject'] = {
     init: function() {
-        this.appendDummyInput()
-            .appendField("Environment object");
-        this.appendDummyInput()
-            .appendField("Name")
-            .appendField(new Blockly.FieldTextInput(""), "name");
-        this.appendDummyInput()
-            .appendField("Scoutable")
-            .appendField(new Blockly.FieldCheckbox("FALSE"), "scoutable");
-        this.appendDummyInput()
-            .appendField("Position:")
-            .appendField("x")
-            .appendField(new Blockly.FieldNumber(0), "x")
-            .appendField("y")
-            .appendField(new Blockly.FieldNumber(0), "y");
-        this.setPreviousStatement(true, ["Flow", "Action"]);
-        this.setNextStatement(true, ["Flow", "Action"]);
-        this.setColour(0);
-        this.setTooltip("");
-        this.setHelpUrl("");
-        //this.setOutput(true, "Env_objects");
+      this.appendDummyInput()
+          .appendField("Scoutable object");
+      this.appendDummyInput()
+          .appendField("name")
+          .appendField(new Blockly.FieldTextInput("Object name"), "OBJECTNAME");
+      this.appendDummyInput()
+          .appendField("position")
+          .appendField("x")
+          .appendField(new Blockly.FieldNumber(0), "X_POS")
+          .appendField("y")
+          .appendField(new Blockly.FieldNumber(0), "Y_POS");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("");
+   this.setHelpUrl("");
     }
-  };
+};
 
-  Blockly.JavaScript['env_object'] = function(block) {
-    var text_name = block.getFieldValue('name');
-    var checkbox_scoutable = block.getFieldValue('scoutable') === 'TRUE';
-    var number_x = block.getFieldValue('x');
-    var number_y = block.getFieldValue('y');
-    var code = '{\n"name": "' + text_name + '",\n"scoutable": ' + checkbox_scoutable + ',\n"x": ' + number_x + ',\n"y": ' + number_y + '\n},\n';
+Blockly.JavaScript['scoutableobject'] = function(block) {
+    var text_objectname = block.getFieldValue('OBJECTNAME');
+    var number_x_pos = block.getFieldValue('X_POS');
+    var number_y_pos = block.getFieldValue('Y_POS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{\n'
+        + '"environmental_object_type" : "ScoutableObject",\n'
+        + '"id":' + text_objectname + ",\n"
+        + '"x_position":' + number_x_pos + ",\n"
+        + '"y_position":' + number_y_pos + "\n"
+        + '}\n'
+    ;
     return code;
-  };
+};
+
+Blockly.Blocks['obstacle'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("Obstacle");
+      this.appendDummyInput()
+          .appendField("name")
+          .appendField(new Blockly.FieldTextInput("Object name"), "OBJECTNAME");
+      this.appendDummyInput()
+          .appendField("position")
+          .appendField("x")
+          .appendField(new Blockly.FieldNumber(0), "X_POS")
+          .appendField("y")
+          .appendField(new Blockly.FieldNumber(0), "Y_POS");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(0);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.JavaScript['obstacle'] = function(block) {
+    var text_objectname = block.getFieldValue('OBJECTNAME');
+    var number_x_pos = block.getFieldValue('X_POS');
+    var number_y_pos = block.getFieldValue('Y_POS');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{\n'
+        + '"environmental_object_type" : "Obstacle",\n'
+        + '"id":' + text_objectname + ",\n"
+        + '"x_position":' + number_x_pos + ",\n"
+        + '"y_position":' + number_y_pos + "\n"
+        + '}\n'
+    ;
+    return code;
+};
