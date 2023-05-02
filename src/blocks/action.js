@@ -118,7 +118,7 @@ Blockly.Blocks['scout'] = {
         + '"left":' + number_left + ",\n"
         + '"bottom":' + number_bottom + ",\n"
         + '"right":' + number_right + ",\n"
-        + '"top":' + number_top + ",\n"
+        + '"top":' + number_top + "\n"
         + '}\n'
         + '}\n'
     ;
