@@ -32,6 +32,6 @@ Blockly.Blocks['robot'] = {
     var number_x = block.getFieldValue('x');
     var number_y = block.getFieldValue('y');
     var angle_angle = block.getFieldValue('Angle');
-    var code = '{ "name": "' + text_robot_name + '",\n"robot_type": "' + dropdown_robot_type + '",\n"starting_pos": [\nx: ' + number_x + ',\ny: ' + number_y + ',\ntheta: ' + angle_angle + '\n]\n}\n';
+    var code = '{\n"name": "' + text_robot_name + '",\n"robot_type": "' + dropdown_robot_type + '",\n"starting_pos": [\n"x": ' + number_x + ',\n"y": ' + number_y + ',\n"theta": ' + angle_angle + '\n]\n}\n';
     return code;
   };
