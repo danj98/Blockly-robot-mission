@@ -61,11 +61,11 @@
             "contents": [
                 {
                     "kind": "block",
-                    "type": "parallel_actions"
+                    "type": "sequence"
                 },
                 {
                     "kind": "block",
-                    "type": "sequence"
+                    "type": "fork"
                 }
             ]
         },
