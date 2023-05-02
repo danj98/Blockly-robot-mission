@@ -23,6 +23,9 @@ Blockly.Blocks['robot'] = {
         this.setTooltip("A robot with its characteristics");
         this.setHelpUrl("");
         //this.setOutput(true, "Robot");
+        this.jsonInit({
+            "type": "Robot"
+        });
     }
   };
 

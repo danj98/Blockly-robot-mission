@@ -9,15 +9,15 @@ Blockly.Blocks['mission_start'] = {
             .appendField("Name:")
             .appendField(new Blockly.FieldTextInput("Robot"), "ROBOTNAME");
         this.appendStatementInput("env")
-            //.setCheck("Env")
+             .setCheck("Environment")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Environment:");
         this.appendStatementInput("robot")
-            //.setCheck("Robot")
+            .setCheck("Robot")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Robot(s):");
         this.appendStatementInput("tasks")
-            //.setCheck(["Flow", "Action"])
+            .setCheck(["Flow", "Action"]) // Maybe just Flow
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Tasks:");
         this.setColour(230);

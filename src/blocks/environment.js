@@ -12,7 +12,7 @@ Blockly.Blocks['environment'] = {
             .appendField("y")
             .appendField(new Blockly.FieldNumber(0), "size_y");
         this.appendStatementInput("env_objects")
-            //.setCheck("Env_objects")
+            .setCheck("EnvironmentalObject")
             .appendField("Environment objects");
         this.setPreviousStatement(true, "Environment");
         this.setNextStatement(true, "Environment");
@@ -20,6 +20,9 @@ Blockly.Blocks['environment'] = {
         this.setTooltip("");
         this.setHelpUrl("");
         //this.setOutput(true, "Environment");
+        this.jsonInit({
+            "type": "Environment"
+            });
     }
   };
 
@@ -46,11 +49,14 @@ Blockly.Blocks['scoutableobject'] = {
           .appendField(new Blockly.FieldNumber(0), "X_POS")
           .appendField("y")
           .appendField(new Blockly.FieldNumber(0), "Y_POS");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "EnvironmentalObject");
+      this.setNextStatement(true, "EnvironmentalObject");
       this.setColour(0);
    this.setTooltip("");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "EnvironmentalObject"
+    });
     }
 };
 
@@ -82,11 +88,14 @@ Blockly.Blocks['obstacle'] = {
           .appendField(new Blockly.FieldNumber(0), "X_POS")
           .appendField("y")
           .appendField(new Blockly.FieldNumber(0), "Y_POS");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, "EnvironmentalObject");
+      this.setNextStatement(true, "EnvironmentalObject");
       this.setColour(0);
    this.setTooltip("");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "EnvironmentalObject"
+    });
     }
 };
 

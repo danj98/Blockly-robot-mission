@@ -30,6 +30,9 @@ Blockly.Blocks['move'] = {
       this.setColour(65);
    this.setTooltip("Move command with x and y coordinates and angle");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "Action"
+    });
     }
   };
 
@@ -60,6 +63,9 @@ Blockly.Blocks['turn'] = {
       this.setColour(65);
    this.setTooltip("Turn robot to given angle");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "Action"
+    });
     }
   };
 
@@ -100,6 +106,9 @@ Blockly.Blocks['scout'] = {
       this.setColour(65);
    this.setTooltip("Search for a given object in a given area. The coordinates are opposing corners of a square area.");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "Action"
+    });
     }
   };
 
@@ -139,6 +148,9 @@ Blockly.Blocks['read_lidar'] = {
         this.setColour(65);
         this.setTooltip("Reads LIDAR data of robot");
         this.setHelpUrl("");
+        this.jsonInit({
+          "type": "Action"
+          });
     }
   };
 

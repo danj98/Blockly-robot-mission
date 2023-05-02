@@ -6,13 +6,16 @@ import * as Blockly from "blockly/core";
 Blockly.Blocks['fork'] = {
     init: function() {
       this.appendStatementInput("Parallel tasks")
-          .setCheck(null)
+          .setCheck(["Flow", "Task"])
           .appendField("Fork");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, ["Flow", "Task"]);
+      this.setNextStatement(true, ["Flow", "Task"]);
       this.setColour(120);
    this.setTooltip("Allows actions in parallel");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "Flow"
+    });
     }
 };
 
@@ -33,13 +36,16 @@ Blockly.JavaScript['fork'] = function(block) {
 Blockly.Blocks['sequence'] = {
     init: function() {
       this.appendStatementInput("Sequence")
-          .setCheck(null)
+          .setCheck(["Flow", "Task"])
           .appendField("Sequence");
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
+      this.setPreviousStatement(true, ["Flow", "Task"]);
+      this.setNextStatement(true, ["Flow", "Task"]);
       this.setColour(120);
    this.setTooltip("");
    this.setHelpUrl("");
+   this.jsonInit({
+    "type": "Flow"
+    });
     }
 };
 
