@@ -32,7 +32,7 @@ Blockly.Blocks['environment'] = {
     var number_size_x = block.getFieldValue('size_x');
     var number_size_y = block.getFieldValue('size_y');
     var statements_env_objects = Blockly.JavaScript.statementToCode(block, 'env_objects');
-    var code = '{\n"size_x": ' + number_size_x + ',\n"size_y": ' + number_size_y + ',\n"env_objects": [\n' + statements_env_objects + '\n]\n}\n';
+    var code = '{\n"size_x": ' + number_size_x + ',\n"size_y": ' + number_size_y + ',\n"env_objects": [\n' + statements_env_objects + ']\n}\n';
     return code;
   };
 
@@ -72,7 +72,7 @@ Blockly.JavaScript['scoutableobject'] = function(block) {
         + '"id":' + text_objectname + ",\n"
         + '"x_position":' + number_x_pos + ",\n"
         + '"y_position":' + number_y_pos + "\n"
-        + '}\n'
+        + '},\n'
     ;
     return code;
 };
@@ -113,7 +113,7 @@ Blockly.JavaScript['obstacle'] = function(block) {
         + '"id":' + text_objectname + ",\n"
         + '"x_position":' + number_x_pos + ",\n"
         + '"y_position":' + number_y_pos + "\n"
-        + '}\n'
+        + '},\n'
     ;
     return code;
 };

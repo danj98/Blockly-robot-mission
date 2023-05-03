@@ -37,8 +37,8 @@ Blockly.Blocks['mission_start'] = {
     var code = '{\n'
         + '"name": "' + mission_name + '",\n'
         + '"environment": ' + statements_env + ",\n"
-        + '"robots": ' + statements_robot + ",\n"
-        + '"tasks": ' + statements_tasks + "\n"
+        + '"robots": [' + statements_robot + "],\n"
+        + '"tasks": [' + statements_tasks + "]\n"
         + '}\n'
         ;
     return code;

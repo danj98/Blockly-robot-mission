@@ -43,7 +43,7 @@ Blockly.Blocks['move'] = {
     var number_coord_x = block.getFieldValue('coord_x');
     var number_coord_y = block.getFieldValue('coord_y');
     var angle_deg = block.getFieldValue('deg');
-    var code = '{\n' + '"task_type": "move",\n"robot": "' + text_robot + '",\n"x":' + number_coord_x + ',\n"y":' + number_coord_y + '",\n"angle":' + angle_deg + '\n}\n';
+    var code = '{\n' + '"task_type": "move",\n"robot": "' + text_robot + '",\n"x":' + number_coord_x + ',\n"y":' + number_coord_y + '",\n"angle":' + angle_deg + '\n},\n';
     return code;
   };
 
@@ -76,7 +76,7 @@ Blockly.Blocks['turn'] = {
   Blockly.JavaScript['turn'] = function(block) {
     var text_robot = block.getFieldValue('robot');
     var angle_deg = block.getFieldValue('deg');
-    var code = '{\n' + '"task_type": "turn",\n"robot": "' + text_robot + '",\n"angle":' + angle_deg + '\n}\n';
+    var code = '{\n' + '"task_type": "turn",\n"robot": "' + text_robot + '",\n"angle":' + angle_deg + '\n},\n';
     return code;
   };
 
@@ -135,7 +135,7 @@ Blockly.Blocks['scout'] = {
         + '"right":' + number_right + ",\n"
         + '"top":' + number_top + "\n"
         + '}\n'
-        + '}\n'
+        + '},\n'
     ;
     return code;
   };
@@ -164,6 +164,6 @@ Blockly.Blocks['read_lidar'] = {
 
   Blockly.JavaScript['read_lidar'] = function(block) {
     var text_robot = block.getFieldValue('robot');
-    var code = '{\n' + '"task_type": "read_lidar",\n"robot": "' + text_robot + '"\n}\n';
+    var code = '{\n' + '"task_type": "read_lidar",\n"robot": "' + text_robot + '"\n},\n';
     return code;
   };

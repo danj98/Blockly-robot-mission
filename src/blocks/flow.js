@@ -25,7 +25,7 @@ Blockly.JavaScript['fork'] = function(block) {
         + '"parallel_tasks": ['
         + statements_parallel_tasks 
         + ']\n'
-        + '}\n'
+        + '},\n'
     return code;
 };
 
@@ -54,6 +54,6 @@ Blockly.JavaScript['sequence'] = function(block) {
         + '"sequence": ['
         + statements_sequence 
         + ']\n'
-        + '}\n'
+        + '},\n'
     return code;
 };
