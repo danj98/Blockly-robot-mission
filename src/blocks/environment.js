@@ -16,15 +16,10 @@ Blockly.Blocks['environment'] = {
         this.appendStatementInput("env_objects")
             .setCheck("EnvironmentalObject")
             .appendField("Environment objects");
-        this.setPreviousStatement(true, "Environment");
-        this.setNextStatement(true, "Environment");
         this.setColour(260);
         this.setTooltip("An environment described by an area and a list of environmental objects");
         this.setHelpUrl("");
-        //this.setOutput(true, "Environment");
-        this.jsonInit({
-            "type": "Environment"
-            });
+        this.setOutput(true, "Environment");
     }
   };
 
@@ -32,8 +27,14 @@ Blockly.Blocks['environment'] = {
     var number_size_x = block.getFieldValue('size_x');
     var number_size_y = block.getFieldValue('size_y');
     var statements_env_objects = Blockly.JavaScript.statementToCode(block, 'env_objects');
+    
+    // Remove last "," from generated JSON
+    if (statements_env_objects){
+        statements_env_objects = statements_env_objects.slice(0, -2);
+    }
+
     var code = '{\n"size_x": ' + number_size_x + ',\n"size_y": ' + number_size_y + ',\n"env_objects": [\n' + statements_env_objects + ']\n}\n';
-    return code;
+    return [code, Blockly.JavaScript.ORDER_NONE];
   };
 
 /**

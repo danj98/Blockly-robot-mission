@@ -10,7 +10,7 @@ Blockly.Blocks['mission_start'] = {
         this.appendDummyInput()
             .appendField("Name:")
             .appendField(new Blockly.FieldTextInput(), "MISSIONNAME");
-        this.appendStatementInput("env")
+        this.appendValueInput("env") //Value
              .setCheck("Environment")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Environment:");
@@ -30,16 +30,37 @@ Blockly.Blocks['mission_start'] = {
 
   Blockly.JavaScript['mission_start'] = function(block) {
     var mission_name = Blockly.JavaScript.statementToCode(block, 'MISSIONNAME');
-    var statements_env = Blockly.JavaScript.statementToCode(block, 'env');
+    var value_env = Blockly.JavaScript.valueToCode(block, 'env', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_robot = Blockly.JavaScript.statementToCode(block, 'robot');
     var statements_tasks = Blockly.JavaScript.statementToCode(block, 'tasks');
 
+    // Removing surrounding "( )" from generated JSON
+    if(value_env){
+        value_env = value_env.slice(1, -1);
+    }else{
+        value_env = "null"
+    }
+
+    // Remove last "," from generated JSON
+    if (statements_robot){
+        statements_robot = statements_robot.slice(0, -2);
+    }
+
+    // Remove last "," from generated JSON
+    if (statements_tasks){
+        statements_tasks = statements_tasks.slice(0, -2);
+    }
+
     var code = '{\n'
         + '"name": "' + mission_name + '",\n'
-        + '"environment": ' + statements_env + ",\n"
+        + '"environment": ' + value_env + ",\n"
         + '"robots": [' + statements_robot + "],\n"
         + '"tasks": [' + statements_tasks + "]\n"
         + '}\n'
         ;
-    return code;
+
+    // Converting generated code to JS object
+    var obj = JSON.parse(code);
+    // Returning a pretty printed JSON string
+    return JSON.stringify(obj, null, 2);
   };
