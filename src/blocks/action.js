@@ -43,7 +43,7 @@ Blockly.Blocks['move'] = {
     var number_coord_x = block.getFieldValue('coord_x');
     var number_coord_y = block.getFieldValue('coord_y');
     var angle_deg = block.getFieldValue('deg');
-    var code = '{\n' + '"task_type": "move",\n"robot": "' + text_robot + '",\n"x":' + number_coord_x + ',\n"y":' + number_coord_y + '",\n"angle":' + angle_deg + '\n},\n';
+    var code = '{\n' + '"task_type": "move",\n"robot": "' + text_robot + '",\n"x":' + number_coord_x + ',\n"y":' + number_coord_y + ',\n"angle":' + angle_deg + '\n},\n';
     return code;
   };
 
