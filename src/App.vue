@@ -68,6 +68,7 @@ body {
   height: 100%;
   margin: 0;
   background-color: beige;
+  overflow-y: auto;
 }
 
 #blockly2 {
