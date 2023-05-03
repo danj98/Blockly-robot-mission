@@ -45,7 +45,7 @@ Blockly.Blocks['scoutableobject'] = {
           .appendField("Scoutable object");
       this.appendDummyInput()
           .appendField("name")
-          .appendField(new Blockly.FieldTextInput("Object name"), "OBJECTNAME");
+          .appendField(new Blockly.FieldTextInput(), "OBJECTNAME");
       this.appendDummyInput()
           .appendField("position")
           .appendField("x")
@@ -86,7 +86,7 @@ Blockly.Blocks['obstacle'] = {
           .appendField("Obstacle");
       this.appendDummyInput()
           .appendField("name")
-          .appendField(new Blockly.FieldTextInput("Object name"), "OBJECTNAME");
+          .appendField(new Blockly.FieldTextInput(), "OBJECTNAME");
       this.appendDummyInput()
           .appendField("position")
           .appendField("x")
