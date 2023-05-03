@@ -2,7 +2,7 @@
   <div id="app">
     <BlocklyComponent id="blockly2" :options="options" ref="foo"></BlocklyComponent>
     <p id="code">
-      <button v-on:click="showCode()">Show JavaScript</button>
+      <button v-on:click="showCode()">Show JSON</button>
       <pre v-html="code"></pre>
     </p>
   </div>
