@@ -3,6 +3,7 @@
     <BlocklyComponent id="blockly2" :options="options" ref="foo"></BlocklyComponent>
     <p id="code">
       <button v-on:click="showCode()">Show JSON</button>
+      <button v-on:click="copyCode()">Copy</button>
       <pre v-html="code"></pre>
     </p>
   </div>
@@ -42,6 +43,15 @@ export default {
   methods: {
     showCode() {
       this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
+    },
+    copyCode() {
+      const preElement = document.querySelector("#code pre");
+      const range = document.createRange();
+      range.selectNode(preElement);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand("copy");
+      window.getSelection().removeAllRanges();
     },
   },
 };
