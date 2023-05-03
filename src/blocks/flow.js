@@ -21,7 +21,6 @@ Blockly.Blocks['fork'] = {
 
 Blockly.JavaScript['fork'] = function(block) {
     var statements_parallel_tasks = Blockly.JavaScript.statementToCode(block, 'Parallel tasks');
-    // TODO: Assemble JavaScript into code variable.
     var code = '{\n'
         + '"parallel_tasks": ['
         + statements_parallel_tasks 
@@ -41,7 +40,7 @@ Blockly.Blocks['sequence'] = {
       this.setPreviousStatement(true, ["Flow", "Task"]);
       this.setNextStatement(true, ["Flow", "Task"]);
       this.setColour(120);
-   this.setTooltip("");
+   this.setTooltip("Represents a sequence of actions");
    this.setHelpUrl("");
    this.jsonInit({
     "type": "Flow"
@@ -51,7 +50,6 @@ Blockly.Blocks['sequence'] = {
 
 Blockly.JavaScript['sequence'] = function(block) {
     var statements_sequence = Blockly.JavaScript.statementToCode(block, 'Sequence');
-    // TODO: Assemble JavaScript into code variable.
     var code = '{\n'
         + '"sequence": ['
         + statements_sequence 

@@ -1,6 +1,8 @@
 import * as Blockly from "blockly/core";
 
-// Block for robot definition
+/**
+ * Block for robot definition
+ */
 Blockly.Blocks['robot'] = {
     init: function() {
         this.appendDummyInput()

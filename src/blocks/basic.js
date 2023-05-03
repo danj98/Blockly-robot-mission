@@ -1,6 +1,8 @@
 import * as Blockly from "blockly/core";
 
-// Block for starting a mission
+/**
+ * Block for starting a mission
+ */
 Blockly.Blocks['mission_start'] = {
     init: function() {
         this.appendDummyInput()
@@ -25,15 +27,13 @@ Blockly.Blocks['mission_start'] = {
         this.setHelpUrl("");
     }
   };
-  
-  
 
   Blockly.JavaScript['mission_start'] = function(block) {
     var mission_name = Blockly.JavaScript.statementToCode(block, 'ROBOTNAME');
     var statements_env = Blockly.JavaScript.statementToCode(block, 'env');
     var statements_robot = Blockly.JavaScript.statementToCode(block, 'robot');
     var statements_tasks = Blockly.JavaScript.statementToCode(block, 'tasks');
-    // TODO: Assemble JavaScript into code variable.
+
     var code = '{\n'
         + '"name": "' + mission_name + '",\n'
         + '"environment": ' + statements_env + ",\n"

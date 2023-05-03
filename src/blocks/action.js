@@ -1,6 +1,8 @@
 import * as Blockly from "blockly/core";
 
-// Block to move the robot to x and y coordinates
+/**
+ * Block to move the robot to x and y coordinates
+ */
 Blockly.Blocks['move'] = {
     init: function() {
       this.appendDummyInput()
@@ -45,7 +47,9 @@ Blockly.Blocks['move'] = {
     return code;
   };
 
-// Block to turn the robot to a given angle
+/**
+ * Block to turn the robot to a given angle
+ */
 Blockly.Blocks['turn'] = {
     init: function() {
       this.appendDummyInput()
@@ -76,7 +80,9 @@ Blockly.Blocks['turn'] = {
     return code;
   };
 
-// Block to scout an area for an environment object
+/**
+ * Block to scout an area for an environment object
+ */
 Blockly.Blocks['scout'] = {
     init: function() {
       this.appendDummyInput()
@@ -134,7 +140,9 @@ Blockly.Blocks['scout'] = {
     return code;
   };
 
-// Block to read the value of a LIDAR sensor
+/**
+ * Block to read the value of a LIDAR sensor
+ */
 Blockly.Blocks['read_lidar'] = {
     init: function() {
         this.appendDummyInput()
