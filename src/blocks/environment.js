@@ -69,7 +69,7 @@ Blockly.JavaScript['scoutableobject'] = function(block) {
     var number_y_pos = block.getFieldValue('Y_POS');
     var code = '{\n'
         + '"environmental_object_type" : "ScoutableObject",\n'
-        + '"id":' + text_objectname + ",\n"
+        + '"id": "' + text_objectname + '",\n'
         + '"x_position":' + number_x_pos + ",\n"
         + '"y_position":' + number_y_pos + "\n"
         + '},\n'
@@ -110,7 +110,7 @@ Blockly.JavaScript['obstacle'] = function(block) {
     var number_y_pos = block.getFieldValue('Y_POS');
     var code = '{\n'
         + '"environmental_object_type" : "Obstacle",\n'
-        + '"id":' + text_objectname + ",\n"
+        + '"id": "' + text_objectname + '",\n'
         + '"x_position":' + number_x_pos + ",\n"
         + '"y_position":' + number_y_pos + "\n"
         + '},\n'
