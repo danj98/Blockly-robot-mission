@@ -19,7 +19,7 @@ Blockly.Blocks['mission_start'] = {
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Robot(s):");
         this.appendStatementInput("tasks")
-            .setCheck(["Flow", "Action"]) // Maybe just Flow
+            .setCheck("Flow")
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Tasks:");
         this.setColour(230);

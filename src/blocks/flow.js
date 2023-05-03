@@ -6,10 +6,10 @@ import * as Blockly from "blockly/core";
 Blockly.Blocks['fork'] = {
     init: function() {
       this.appendStatementInput("Parallel tasks")
-          .setCheck(["Flow", "Task"])
+          .setCheck(["Flow", "Action"])
           .appendField("Fork");
-      this.setPreviousStatement(true, ["Flow", "Task"]);
-      this.setNextStatement(true, ["Flow", "Task"]);
+      this.setPreviousStatement(true, ["Flow", "Action"]);
+      this.setNextStatement(true, ["Flow", "Action"]);
       this.setColour(120);
    this.setTooltip("Allows actions in parallel");
    this.setHelpUrl("");
@@ -35,10 +35,10 @@ Blockly.JavaScript['fork'] = function(block) {
 Blockly.Blocks['sequence'] = {
     init: function() {
       this.appendStatementInput("Sequence")
-          .setCheck(["Flow", "Task"])
+          .setCheck(["Flow", "Action"])
           .appendField("Sequence");
-      this.setPreviousStatement(true, ["Flow", "Task"]);
-      this.setNextStatement(true, ["Flow", "Task"]);
+      this.setPreviousStatement(true, ["Flow", "Action"]);
+      this.setNextStatement(true, ["Flow", "Action"]);
       this.setColour(120);
    this.setTooltip("Represents a sequence of actions");
    this.setHelpUrl("");
