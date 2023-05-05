@@ -88,6 +88,10 @@
             {
                 "kind": "block",
                 "type": "read_lidar"
+            },
+            {
+                "kind": "block",
+                "type": "pick_up"
             }
         ]
       }

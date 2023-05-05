@@ -162,8 +162,37 @@ Blockly.Blocks['read_lidar'] = {
     }
   };
 
-  Blockly.JavaScript['read_lidar'] = function(block) {
-    var text_robot = block.getFieldValue('robot');
-    var code = '{\n' + '"task_type": "read_lidar",\n"robot": "' + text_robot + '"\n},\n';
-    return code;
-  };
+Blockly.JavaScript['read_lidar'] = function(block) {
+  var text_robot = block.getFieldValue('robot');
+  var code = '{\n' + '"task_type": "read_lidar",\n"robot": "' + text_robot + '"\n},\n';
+  return code;
+};
+
+/**
+ * Block to pick up a object in the environment
+ */
+Blockly.Blocks['pick_up'] = {
+  init: function() {
+      this.appendDummyInput()
+          .appendField("Pick up")
+          .appendField(new Blockly.FieldTextInput(""), "object");
+      this.appendDummyInput()
+          .appendField("Robot:")
+          .appendField(new Blockly.FieldTextInput(""), "robot");
+      this.setPreviousStatement(true, ["Action", "Flow"]);
+      this.setNextStatement(true, ["Action", "Flow"]);
+      this.setColour(65);
+      this.setTooltip("Pick up a object");
+      this.setHelpUrl("");
+      this.jsonInit({
+        "type": "Action"
+        });
+  }
+};
+
+Blockly.JavaScript['pick_up'] = function(block) {
+  var text_object = block.getFieldValue('object');
+  var text_robot = block.getFieldValue('robot');
+  var code = '{\n' + '"task_type": "pick_up",\n"target": "' + text_object + '",\n"robot": "' + text_robot + '"\n},\n';
+  return code;
+};
