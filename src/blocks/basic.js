@@ -29,7 +29,7 @@ Blockly.Blocks['mission_start'] = {
   };
 
   Blockly.JavaScript['mission_start'] = function(block) {
-    var mission_name = Blockly.JavaScript.statementToCode(block, 'MISSIONNAME');
+    var mission_name = block.getFieldValue('MISSIONNAME');
     var value_env = Blockly.JavaScript.valueToCode(block, 'env', Blockly.JavaScript.ORDER_ATOMIC);
     var statements_robot = Blockly.JavaScript.statementToCode(block, 'robot');
     var statements_tasks = Blockly.JavaScript.statementToCode(block, 'tasks');
