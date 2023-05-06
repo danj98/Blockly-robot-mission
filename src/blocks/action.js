@@ -10,7 +10,8 @@ Blockly.Blocks['move'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("robot")
-          .appendField(new Blockly.FieldTextInput(""), "robot");
+          //.appendField(new Blockly.FieldTextInput(""), "robot");
+          .appendField(new Blockly.FieldDropdown(getRobotOptions()), "robot");
       this.appendDummyInput()
       .appendField("to:");
       this.appendDummyInput()
@@ -55,7 +56,8 @@ Blockly.Blocks['turn'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("Robot:")
-          .appendField(new Blockly.FieldTextInput(""), "robot");
+          //.appendField(new Blockly.FieldTextInput(""), "robot");
+          .appendField(new Blockly.FieldDropdown(getRobotOptions()), "robot");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField("Turn:")
@@ -91,10 +93,12 @@ Blockly.Blocks['scout'] = {
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_LEFT)
           .appendField("Robot:")
-          .appendField(new Blockly.FieldTextInput(""), "robot");
+          //.appendField(new Blockly.FieldTextInput(""), "robot");
+          .appendField(new Blockly.FieldDropdown(getRobotOptions()), "robot");
       this.appendDummyInput()
           .appendField("Environment object:")
-          .appendField(new Blockly.FieldTextInput(""), "target");
+          //.appendField(new Blockly.FieldTextInput(""), "target");
+          .appendField(new Blockly.FieldDropdown(getScoutableObjectsOptions()), "target");
       this.appendDummyInput()
           .setAlign(Blockly.ALIGN_LEFT)
           .appendField("left:")
@@ -149,7 +153,8 @@ Blockly.Blocks['read_lidar'] = {
             .appendField("Read Lidar");
         this.appendDummyInput()
             .appendField("Robot:")
-            .appendField(new Blockly.FieldTextInput(""), "robot");
+            //.appendField(new Blockly.FieldTextInput(""), "robot");
+            .appendField(new Blockly.FieldDropdown(getRobotOptions()), "robot");
         //this.setOutput(true, "Action");
         this.setPreviousStatement(true, ["Action", "Flow"]);
         this.setNextStatement(true, ["Action", "Flow"]);
@@ -175,10 +180,12 @@ Blockly.Blocks['pick_up'] = {
   init: function() {
       this.appendDummyInput()
           .appendField("Pick up")
-          .appendField(new Blockly.FieldTextInput(""), "object");
+          //.appendField(new Blockly.FieldTextInput(""), "object");
+          .appendField(new Blockly.FieldDropdown(getScoutableObjectsOptions()), "object");
       this.appendDummyInput()
           .appendField("Robot:")
-          .appendField(new Blockly.FieldTextInput(""), "robot");
+          //.appendField(new Blockly.FieldTextInput(""), "robot");
+          .appendField(new Blockly.FieldDropdown(getRobotOptions()), "robot");
       this.setPreviousStatement(true, ["Action", "Flow"]);
       this.setNextStatement(true, ["Action", "Flow"]);
       this.setColour(65);
@@ -196,3 +203,27 @@ Blockly.JavaScript['pick_up'] = function(block) {
   var code = '{\n' + '"task_type": "pick_up",\n"target": "' + text_object + '",\n"robot": "' + text_robot + '"\n},\n';
   return code;
 };
+
+/**
+ * @returns Dropdown options for robots in the current workspace
+ */
+function getRobotOptions() {
+  var robotOptions = [["Unassigned", "Unassigned"]];
+  var robotBlocks = Blockly.getMainWorkspace().getAllBlocks().filter(block => block.type === 'robot');
+  robotBlocks.forEach(function(robotBlock) {
+    robotOptions.push([robotBlock.getFieldValue('robot_name'), robotBlock.getFieldValue('robot_name')]);
+  });
+  return robotOptions;
+}
+
+/**
+ * @returns Dropdown options for scoutableobjects in the current workspace
+ */
+function getScoutableObjectsOptions() {
+  var objectOptions = [["Undefined", "Undefined"]];
+  var objectBlocks = Blockly.getMainWorkspace().getAllBlocks().filter(block => block.type === 'scoutableobject');
+  objectBlocks.forEach(function(robotBlock) {
+    objectOptions.push([robotBlock.getFieldValue('OBJECTNAME'), robotBlock.getFieldValue('OBJECTNAME')]);
+  });
+  return objectOptions;
+}
