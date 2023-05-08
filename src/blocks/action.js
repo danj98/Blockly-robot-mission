@@ -121,19 +121,19 @@ Blockly.Blocks['scout'] = {
   Blockly.JavaScript['scout'] = function(block) {
     var text_robot = block.getFieldValue('robot');
     var text_target = block.getFieldValue('target');
-    var number_left = block.getFieldValue('left');
-    var number_bottom= block.getFieldValue('bottom');
-    var number_right = block.getFieldValue('right');
-    var number_top = block.getFieldValue('top');
+    var x1 = block.getFieldValue('x1');
+    var y1 = block.getFieldValue('y1');
+    var x2 = block.getFieldValue('x2');
+    var y2 = block.getFieldValue('y2');
     var code = '{\n'
         + '"task_type" : "scout",\n'
         + '"robot":"' + text_robot + '",\n'
         + '"target": "' + text_target + '",\n'
         + '"area": {\n'
-        + '"left":' + number_left + ",\n"
-        + '"bottom":' + number_bottom + ",\n"
-        + '"right":' + number_right + ",\n"
-        + '"top":' + number_top + "\n"
+        + '"x1":' + x1 + ",\n"
+        + '"y1":' + y1 + ",\n"
+        + '"x2":' + x2 + ",\n"
+        + '"y2":' + y2 + "\n"
         + '}\n'
         + '},\n'
     ;
