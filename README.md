@@ -3,7 +3,7 @@
 
 # Blockly robot mission [![Built on Blockly](https://tinyurl.com/built-on-blockly)](https://github.com/google/blockly)
 
-A simple low-code platform for defining robot missions. 
+A simple low-code platform for defining robot missions. This is developed as a project for the course DAT355 at HVL.
 
 ## Installation
 
